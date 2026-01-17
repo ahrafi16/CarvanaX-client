@@ -1,4 +1,5 @@
-import banner_car from "../../public/banner_car.png";
+
+import { Link } from "react-router-dom";
 const Banner = () => {
     return (
         <div className="flex relative items-center justify-between px-6 md:px-20"
@@ -13,12 +14,18 @@ const Banner = () => {
                 <h1 className="text-4xl md:text-7xl sansita-black">Find Your <br />
                     Dream Car</h1>
                 <p>Lorem Ipsum has been the industry's standard dummy text ever since</p>
-                <button className="border rounded-md bg-brand px-4 py-2 md:mt-4 hover:bg-brand-dark">
-                    Read More
-                </button>
+
+                <Link
+                    to="/allcars"
+                    className="inline-block border rounded-md bg-brand px-4 py-2 md:mt-4 cursor-pointer hover:bg-white hover:text-black"
+                >
+                    View Cars
+                </Link>
+
+
             </div>
             <img
-                src={banner_car}
+                src="/banner_car.png"
                 alt="Banner Car"
                 className="absolute -bottom-30 right-5 md:right-15"
             />

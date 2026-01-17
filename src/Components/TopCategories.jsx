@@ -24,7 +24,7 @@ const TopCategories = () => {
             <div className="mt-10 relative">
                 <div className="absolute text-white md:top-1/5 p-3 md:p-10">
                     <h1 className="md:text-4xl text-white sansita-bold-italic mb-2 md:mb-4">Rolls Royce Wraith</h1>
-                    <button className="border rounded-md bg-brand px-2 py-1 md:px-4 md:py-2 md:mt-4 hover:bg-brand-dark">
+                    <button className="border rounded-md bg-brand px-2 py-1 md:px-4 md:py-2 md:mt-4 hover:bg-brand-dark cursor-pointer hover:bg-white hover:text-black">
                         Learn More
                     </button>
                 </div>
