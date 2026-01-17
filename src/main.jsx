@@ -24,6 +24,7 @@ const router = createBrowserRouter(
         },
         {
           path: "allcars",
+          loader: () => fetch('http://localhost:3000/cars'),
           element: <AllCars />
         },
       ],
