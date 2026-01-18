@@ -1,8 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import CarCard from "../Components/CarCard";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 const AllCars = () => {
-    const cars = useLoaderData();
+    const initialCars = useLoaderData();
+    const [cars, setCars] = useState(initialCars);
 
     // Optional handlers
     const handleDetails = (car) => {
@@ -16,8 +19,34 @@ const AllCars = () => {
     };
 
     const handleDelete = (car) => {
-        console.log("Delete car:", car);
-        // Call API to delete car
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/cars/${car._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Car has been deleted.",
+                                icon: "success"
+                            });
+                            // Update local state
+                            setCars(previousCars => previousCars.filter(c => c._id !== car._id));
+                        }
+                    })
+
+            }
+        });
     };
 
     return (
@@ -27,7 +56,7 @@ const AllCars = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {cars.map((car) => (
                     <CarCard
-                        key={car._id || car.title} 
+                        key={car._id || car.title}
                         car={car}
                         onDetails={handleDetails}
                         onEdit={handleEdit}
