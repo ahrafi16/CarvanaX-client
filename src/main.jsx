@@ -7,6 +7,8 @@ import MainLayout from './layouts/MainLayout.jsx';
 import Home from './layouts/Home.jsx';
 import AddCar from './Routes/AddCar.jsx';
 import AllCars from './Routes/AllCars.jsx';
+import CarDetails from './Routes/CarDetails.jsx';
+import UpdateCar from './Routes/UpdateCar.jsx';
 
 const router = createBrowserRouter(
   [
@@ -26,6 +28,16 @@ const router = createBrowserRouter(
           path: "allcars",
           loader: () => fetch('http://localhost:3000/cars'),
           element: <AllCars />
+        },
+        {
+          path: "allcars/:id",
+          loader: ({params}) => fetch(`http://localhost:3000/cars/${params.id}`),
+          element: <CarDetails />
+        },
+        {
+          path: "updateCar/:id",
+          loader: ({params}) => fetch(`http://localhost:3000/cars/${params.id}`),
+          element: <UpdateCar />
         },
       ],
     },

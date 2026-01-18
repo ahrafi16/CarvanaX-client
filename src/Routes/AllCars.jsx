@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import CarCard from "../Components/CarCard";
 import Swal from "sweetalert2";
 import { useState } from "react";
@@ -6,16 +6,15 @@ import { useState } from "react";
 const AllCars = () => {
     const initialCars = useLoaderData();
     const [cars, setCars] = useState(initialCars);
+    const navigate = useNavigate();
 
     // Optional handlers
     const handleDetails = (car) => {
-        console.log("View details:", car);
-        // Navigate to single car page
+        navigate(`/allcars/${car._id}`);
     };
 
     const handleEdit = (car) => {
-        console.log("Edit car:", car);
-        // Navigate to edit form
+        navigate(`/updateCar/${car._id}`);
     };
 
     const handleDelete = (car) => {
