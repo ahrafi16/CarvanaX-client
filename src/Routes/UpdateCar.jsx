@@ -1,13 +1,37 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateCar = () => {
-    const { title, brand, model, year, carType, fuelType, condition, color, price, status, photoUrl, description } = useLoaderData();
+    const { _id, title, brand, model, year, carType, fuelType, condition, color, price, status, photoUrl, description } = useLoaderData();
+    const navigate = useNavigate();
+
     const handleUpdateCar = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const updatedCar = Object.fromEntries(formData.entries());
+
+        fetch(`http://localhost:3000/cars/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedCar)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Car has been updated",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/allcars');
+                }
+            })
     }
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
