@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "./Authcontext";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { isAdmin, logout } = useAuth();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -10,6 +12,11 @@ const Header = () => {
 
     const closeMenu = () => {
         setIsMenuOpen(false);
+    };
+
+    const handleLogout = () => {
+        logout();
+        closeMenu();
     };
 
     return (
@@ -79,15 +86,20 @@ const Header = () => {
                                 Home
                             </Link>
                         </li>
-                        <li>
-                            <Link 
-                                to="/addcar" 
-                                className="block py-2 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#161C28] hover:shadow-lg hover:scale-105 active:scale-95"
-                                onClick={closeMenu}
-                            >
-                                Add Cars
-                            </Link>
-                        </li>
+                        
+                        {/* Show Add Cars only if admin is logged in */}
+                        {isAdmin && (
+                            <li>
+                                <Link 
+                                    to="/addcar" 
+                                    className="block py-2 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#161C28] hover:shadow-lg hover:scale-105 active:scale-95"
+                                    onClick={closeMenu}
+                                >
+                                    Add Cars
+                                </Link>
+                            </li>
+                        )}
+                        
                         <li>
                             <Link 
                                 to="/allcars" 
@@ -124,6 +136,28 @@ const Header = () => {
                                 Contact
                             </a>
                         </li>
+                        
+                        {/* Admin Login/Logout Button */}
+                        {!isAdmin ? (
+                            <li>
+                                <Link 
+                                    to="/admin-login" 
+                                    className="block py-2 px-4 rounded-lg transition-all duration-300 bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 hover:shadow-lg hover:scale-105 active:scale-95"
+                                    onClick={closeMenu}
+                                >
+                                    Admin Login
+                                </Link>
+                            </li>
+                        ) : (
+                            <li>
+                                <button 
+                                    onClick={handleLogout}
+                                    className="block w-full text-left py-2 px-4 rounded-lg transition-all duration-300 bg-red-600 hover:bg-red-700 hover:shadow-lg hover:scale-105 active:scale-95"
+                                >
+                                    Logout
+                                </button>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>

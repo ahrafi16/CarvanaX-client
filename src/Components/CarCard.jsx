@@ -1,6 +1,8 @@
 import { Eye, Edit, Trash2 } from "lucide-react";
+import { useAuth } from "./Authcontext";
 
 const CarCard = ({ car, onDetails, onEdit, onDelete }) => {
+    const { isAdmin } = useAuth();
     return (
         <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
             {/* Car Image */}
@@ -32,20 +34,26 @@ const CarCard = ({ car, onDetails, onEdit, onDelete }) => {
                         <Eye size={16} />
                         Details
                     </button>
-                    <button
-                        onClick={() => onEdit(car)}
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
-                    >
-                        <Edit size={16} />
-                        Edit
-                    </button>
-                    <button
-                        onClick={() => onDelete(car)}
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-                    >
-                        <Trash2 size={16} />
-                        Delete
-                    </button>
+                    {
+                        isAdmin && (
+                            <>
+                                <button
+                                    onClick={() => onEdit(car)}
+                                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
+                                >
+                                    <Edit size={16} />
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => onDelete(car)}
+                                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                                >
+                                    <Trash2 size={16} />
+                                    Delete
+                                </button>
+                            </>
+                        )
+                    }
                 </div>
             </div>
 

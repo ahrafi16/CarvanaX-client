@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
-const TopCategories = () => {
+const TopCategories = ({ cars }) => {
+    const navigate = useNavigate();
+    const displayedCars = cars.slice(0, 4);
+    const handleDetails = (car) => {
+        navigate(`/allcars/${car._id}`);
+    };
     const categoryNames = [
         "In stock",
         "Used Cars",
@@ -22,7 +27,7 @@ const TopCategories = () => {
                 </div>
             </div>
 
-            <div className="mt-10 relative">
+            <div className="my-10 relative">
                 <div className="absolute text-white md:top-1/5 p-3 md:p-10">
                     <h1 className="md:text-4xl text-white sansita-bold-italic mb-2 md:mb-4">Rolls Royce Wraith</h1>
                     <Link to="/allcars">
@@ -33,7 +38,30 @@ const TopCategories = () => {
                 </div>
                 <img className="w-full" src="/rolls_royce.png" alt="Rolls Royce" />
             </div>
-        </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+                {
+                    displayedCars.map(car => (
+                        <div onClick={() => handleDetails(car)} className="h-72 transition-transform hover:scale-105 duration-300 rounded-xl overflow-hidden cursor-pointer" key={car.id}>
+                            <div className="">
+                                <img className="rounded-t-xl h-40 object-cover w-full" src={car.photoUrl} alt={car.title} />
+                            </div>
+
+                            <div className="bg-[#161C28] text-white rounded-b-xl p-2">
+                                <div className="flex justify-between items-center">
+                                    <p>{car.brand}</p>
+                                    <p className="font-semibold">Tk. {car.price}</p>
+                                </div>
+                                <div className="flex text-gray-300 justify-between items-center">
+                                    <p>{car.carType}</p>
+                                    <p>{car.model}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div >
     );
 };
 
