@@ -4,7 +4,7 @@ import { useAuth } from "./Authcontext";
 const CarCard = ({ car, onDetails, onEdit, onDelete }) => {
     const { isAdmin } = useAuth();
     return (
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col">
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl duration-500 flex flex-col transition-transform hover:scale-105">
             {/* Car Image */}
             <img
                 src={car.photoUrl}
@@ -29,7 +29,7 @@ const CarCard = ({ car, onDetails, onEdit, onDelete }) => {
                 <div className="mt-4 flex gap-2">
                     <button
                         onClick={() => onDetails(car)}
-                        className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                        className="flex-1 flex items-center justify-center gap-2 py-2 px-4   rounded-lg border cursor-pointer hover:border-blue-700 hover:text-blue-700 transition"
                     >
                         <Eye size={16} />
                         Details
@@ -39,14 +39,14 @@ const CarCard = ({ car, onDetails, onEdit, onDelete }) => {
                             <>
                                 <button
                                     onClick={() => onEdit(car)}
-                                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition"
+                                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4  rounded-lg border cursor-pointer hover:border-yellow-600 hover:text-yellow-600 transition"
                                 >
                                     <Edit size={16} />
                                     Edit
                                 </button>
                                 <button
                                     onClick={() => onDelete(car)}
-                                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+                                    className="flex-1 flex items-center justify-center gap-2 py-2 px-4 border cursor-pointer rounded-lg hover:border-red-700 hover:text-red-700 transition"
                                 >
                                     <Trash2 size={16} />
                                     Delete

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Components/Authcontext';
 
 
@@ -33,14 +33,14 @@ const AdminLogin = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#161C28] via-[#1e2638] to-[#161C28] px-4 py-20">
+        <div className="min-h-screen flex items-center bg-[#161C28] justify-center px-4 py-30">
             <div className="w-full max-w-md">
                 {/* Login Card */}
-                <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-4 border border-white/20">
                     {/* Header */}
                     <div className="text-center mb-8">
                         <div className="flex justify-center mb-4">
-                            <div className="bg-gradient-to-r from-violet-600 to-blue-600 p-4 rounded-full">
+                            <div className=" p-4 rounded-full">
                                 <svg
                                     className="w-12 h-12 text-white"
                                     fill="none"
@@ -62,13 +62,10 @@ const AdminLogin = () => {
 
                     {/* Demo Credentials Info */}
                     <div className="bg-blue-500/20 border border-blue-500/50 rounded-lg p-4 mb-6">
-                        <p className="text-sm text-blue-200 mb-2 font-semibold">Demo Credentials:</p>
-                        <p className="text-xs text-blue-100 mb-1">Email: admin@carvanax.com</p>
-                        <p className="text-xs text-blue-100 mb-3">Password: admin123</p>
                         <button
                             type="button"
                             onClick={fillDemoCredentials}
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-lg transition-all duration-300"
+                            className="w-full text-white text-sm py-2 rounded-lg transition-all duration-300"
                         >
                             Auto-fill Demo Credentials
                         </button>
@@ -136,7 +133,7 @@ const AdminLogin = () => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+                            className="w-full bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform"
                         >
                             Sign In
                         </button>
@@ -144,12 +141,9 @@ const AdminLogin = () => {
 
                     {/* Back to Home Link */}
                     <div className="mt-6 text-center">
-                        <a
-                            href="/"
-                            className="text-sm text-gray-300 hover:text-white transition-colors duration-300"
-                        >
+                        <Link className="text-sm text-gray-300 hover:text-white transition-colors duration-300" to="/">
                             ← Back to Home
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

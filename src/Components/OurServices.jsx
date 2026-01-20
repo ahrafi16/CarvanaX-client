@@ -12,10 +12,10 @@ const OurServices = () => {
                         Learn More
                     </button>
                 </div>
-                <div className="bg-blue-400  rounded-xl col-span-12 md:col-span-8">
+                <div className=" rounded-xl col-span-12 md:col-span-8">
                     <img className="w-full h-96 rounded-xl object-cover" src="/seat.jpg" alt="Seat" />
                 </div>
-                <div className="bg-green-400 rounded-xl col-span-12 md:col-span-8">
+                <div className=" rounded-xl col-span-12 md:col-span-8">
                     <img className="w-full h-96 rounded-xl object-cover" src="/handle.jpg" alt="Handle" />
                 </div>
                 <div className="bg-[#161C28] rounded-xl text-white col-span-12 md:col-span-4 flex flex-col justify-center items-start p-5 gap-5">

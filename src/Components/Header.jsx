@@ -20,7 +20,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="bg-[#161C28]/50 backdrop-blur-lg text-white fixed w-full z-20 top-0 start-0 border-b border-white/10 shadow-lg">
+        <nav className="bg-[#161C28]/80 backdrop-blur-lg text-white fixed w-full z-20 top-0 start-0 border-b border-white/10 shadow-lg">
             <div className="flex flex-wrap items-center justify-between mx-auto px-6 md:px-20 py-4">
                 {/* Logo */}
                 <Link 
@@ -75,7 +75,7 @@ const Header = () => {
                     } w-full md:block md:w-auto transition-all duration-300 ease-in-out`} 
                     id="navbar-default"
                 >
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white/10 rounded-lg bg-neutral-primary/90 backdrop-blur-md md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0">
+                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-white/10 rounded-lg  md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0">
                         <li>
                             <Link 
                                 to="/" 
@@ -142,7 +142,7 @@ const Header = () => {
                             <li>
                                 <Link 
                                     to="/admin-login" 
-                                    className="block py-2 px-4 rounded-lg transition-all duration-300 bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 hover:shadow-lg hover:scale-105 active:scale-95"
+                                    className="block py-2 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:text-[#161C28] hover:shadow-lg hover:scale-105 active:scale-95"
                                     onClick={closeMenu}
                                 >
                                     Admin Login
@@ -152,7 +152,7 @@ const Header = () => {
                             <li>
                                 <button 
                                     onClick={handleLogout}
-                                    className="block w-full text-left py-2 px-4 rounded-lg transition-all duration-300 bg-red-600 hover:bg-red-700 hover:shadow-lg hover:scale-105 active:scale-95"
+                                    className="block w-full text-left py-2 px-4 rounded-lg transition-all duration-300  hover:bg-red-700 hover:shadow-lg hover:scale-105 active:scale-95"
                                 >
                                     Logout
                                 </button>
