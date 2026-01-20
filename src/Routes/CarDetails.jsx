@@ -6,7 +6,7 @@ const CarDetails = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen bg-gray-100 px-4 md:px-10 py-10">
+        <div className="min-h-screen bg-gray-100 px-4 md:px-10 py-30">
             <button
                 onClick={() => navigate(-1)}
                 className="flex items-center gap-2 mb-6 text-blue-600 hover:underline"

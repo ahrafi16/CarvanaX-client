@@ -4,27 +4,27 @@ const FeatureCars = () => {
         {
             "id": 1,
             "name": "Sedan",
-            "icon": "../../public/car_logo (1).png"
+            "icon": "/car_logo (1).png"
         },
         {
             "id": 2,
             "name": "Cabriolet",
-            "icon": "../../public/car_logo (2).png"
+            "icon": "/car_logo (2).png"
         },
         {
             "id": 3,
             "name": "Coupe",
-            "icon": "../../public/car_logo (3).png"
+            "icon": "/car_logo (3).png"
         },
         {
             "id": 4,
             "name": "SUV",
-            "icon": "../../public/car_logo (4).png"
+            "icon": "/car_logo (4).png"
         },
         {
             "id": 5,
             "name": "Micro",
-            "icon": "../../public/car_logo (5).png"
+            "icon": "/car_logo (5).png"
         },
     ];
     return (

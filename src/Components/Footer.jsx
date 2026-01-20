@@ -39,9 +39,9 @@ const Footer = () => {
                     <p className="font-medium text-white">
                         (456) 789-12301
                     </p>
-                    <p>info@modrino.co.uk</p>
-                    <p>South 13th Street</p>
-                    <p>New York, America</p>
+                    <p>info@carvanax.co.bd</p>
+                    <p>Pollibidyut,Savar</p>
+                    <p>Dhaka, Bangladesh</p>
                 </div>
 
             </div>

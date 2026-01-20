@@ -27,7 +27,7 @@ const Banner = () => {
             <img
                 src="/banner_car.png"
                 alt="Banner Car"
-                className="absolute -bottom-30 right-5 md:right-15"
+                className="absolute md:w-2/3 -bottom-30 right-5 md:right-15"
             />
         </div>
     );
