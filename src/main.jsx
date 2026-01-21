@@ -21,7 +21,7 @@ const router = createBrowserRouter(
       children: [
         {
           index: true,
-          loader: () => fetch('http://localhost:3000/cars'),
+          loader: () => fetch('https://carvana-x-server.vercel.app/cars'),
           element: <Home />,
         },
         {
@@ -30,17 +30,17 @@ const router = createBrowserRouter(
         },
         {
           path: "allcars",
-          loader: () => fetch('http://localhost:3000/cars'),
+          loader: () => fetch('https://carvana-x-server.vercel.app/cars'),
           element: <AllCars />
         },
         {
           path: "allcars/:id",
-          loader: ({ params }) => fetch(`http://localhost:3000/cars/${params.id}`),
+          loader: ({ params }) => fetch(`https://carvana-x-server.vercel.app/cars/${params.id}`),
           element: <CarDetails />
         },
         {
           path: "updateCar/:id",
-          loader: ({ params }) => fetch(`http://localhost:3000/cars/${params.id}`),
+          loader: ({ params }) => fetch(`https://carvana-x-server.vercel.app/cars/${params.id}`),
           element: <UpdateCar />
         },
         {

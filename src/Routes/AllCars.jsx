@@ -28,7 +28,7 @@ const AllCars = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/cars/${car._id}`, {
+                fetch(`https://carvana-x-server.vercel.app/cars/${car._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

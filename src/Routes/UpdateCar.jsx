@@ -12,7 +12,7 @@ const UpdateCar = () => {
         const formData = new FormData(form);
         const updatedCar = Object.fromEntries(formData.entries());
 
-        fetch(`http://localhost:3000/cars/${_id}`, {
+        fetch(`https://carvana-x-server.vercel.app/cars/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
